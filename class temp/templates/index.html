@@ -1,0 +1,31 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% block page_content %}
+        <table class="table">
+            <caption>热门行业</caption>
+            <thead class="thead-inverse">
+            <tr>
+                {% for field in fields %}
+                <th>{{field}}</th>
+                {% endfor%}
+            </tr>
+            </thead>
+            <tbody>
+            {% for hy in  hyList %}
+            <tr>
+                <td><a href="/">{{hy[0]}}</a></td>
+                {% for item in hy[1:] %}
+                <td>{{item}}</td>
+                {% endfor%}
+
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% endblock %}
+    </div>
+{% endblock %}
