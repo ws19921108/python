@@ -1,0 +1,33 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block content %}
+    <div>
+        {% block page_content %}
+        <table class="table">
+            <caption><a href="/">热门行业  </a>今日大单 <a href="/jj">基金排名</a></caption>
+            <thead class="thead-inverse">
+            <tr>
+                {% for field in fields %}
+                <th>{{field}}</th>
+                {% endfor%}
+            </tr>
+            </thead>
+            {% for symbol in tbDict %}
+            <tbody>
+            <tr><td><a href="http://finance.sina.com.cn/realstock/company/{{tbDict[symbol][0][0]}}/nc.shtml">{{tbDict[symbol][0][1]}}</a></td></tr>
+            {% for ord in  tbDict[symbol] %}
+            <tr>
+                {% for item in ord %}
+                <td>{{item}}</td>
+                {% endfor%}
+
+            </tr>
+            {% endfor %}
+            </tbody>
+            {% endfor %}
+        </table>
+        {% endblock %}
+    </div>
+{% endblock %}

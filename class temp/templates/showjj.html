@@ -1,0 +1,32 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block content %}
+    <div>
+        {% block page_content %}
+        <table class="table">
+            <caption><a href="/">热门行业</a>  <a href="/tb">今日大单</a> 基金排名</caption>
+            <thead class="thead-inverse">
+            <tr>
+                {% for field in fields %}
+                <th>{{field}}</th>
+                {% endfor%}
+            </tr>
+            </thead>
+            <tbody>
+            {% for jj in  jjList %}
+            <tr>
+                <td>{{jj[0]}}</td>
+                <td><a href="http://finance.sina.com.cn/fund/quotes/{{jj[5]}}/bc.shtml">{{jj[1]}}</a></td>
+                {% for item in jj[2:] %}
+                <td>{{item}}</td>
+                {% endfor%}
+
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% endblock %}
+    </div>
+{% endblock %}

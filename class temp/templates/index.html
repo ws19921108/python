@@ -3,10 +3,10 @@
 {% block title %}Flasky{% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div>
         {% block page_content %}
         <table class="table">
-            <caption>热门行业</caption>
+            <caption>热门行业  <a href="/tb">今日大单</a> <a href="/jj">基金排名</a></caption>
             <thead class="thead-inverse">
             <tr>
                 {% for field in fields %}
@@ -17,7 +17,7 @@
             <tbody>
             {% for hy in  hyList %}
             <tr>
-                <td><a href="/">{{hy[0]}}</a></td>
+                <td><a href="/gg/{{hy[1]}}.csv">{{hy[0]}}</a></td>
                 {% for item in hy[1:] %}
                 <td>{{item}}</td>
                 {% endfor%}
